@@ -9,6 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
     section.style.opacity = "0";
   });
 
+  // Make only the first command prompt visible initially
+  const allCommandPromptDivs = document.querySelectorAll(
+    ".welcome > .command-prompt"
+  );
+  if (allCommandPromptDivs.length > 0) {
+    allCommandPromptDivs[0].style.display = "flex";
+  }
+  // All other prompts, including the final blinking one, remain hidden by CSS.
+
   // Typing effect for commands
   const commandElements = document.querySelectorAll(".command:not(.blink)");
 
@@ -66,8 +75,23 @@ function typeText(element, text) {
           setTimeout(() => {
             sectionToDisplay.style.opacity = "1";
             sectionToDisplay.style.transition = "opacity 0.5s";
-          }, 100);
-        }, 500);
+
+            // After this section is revealed, show the next command prompt
+            const currentCommandPromptDiv = commandPrompt; // commandPrompt is element.closest(".command-prompt")
+            const allPrompts = Array.from(
+              document.querySelectorAll(".welcome > .command-prompt")
+            );
+            const currentIndex = allPrompts.indexOf(currentCommandPromptDiv);
+
+            if (currentIndex !== -1 && currentIndex < allPrompts.length - 1) {
+              const nextCommandPromptDiv = allPrompts[currentIndex + 1];
+              if (nextCommandPromptDiv) {
+                // This will now also show the blinking prompt when it's next
+                nextCommandPromptDiv.style.display = "flex";
+              }
+            }
+          }, 100); // End of fade-in timeout
+        }, 500); // End of section display timeout
       }
     }
   }, 40); // 40ms between characters

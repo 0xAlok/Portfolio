@@ -1,5 +1,5 @@
 /* Fira Code: https://github.com/tonsky/FiraCode */
-@import url('https://cdn.staticdelivr.com/gfonts/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url("https://cdn.staticdelivr.com/gfonts/css2?family=Fira+Code:wght@300..700&display=swap");
 
 :root {
   --background: #1a170f;
@@ -23,12 +23,7 @@ html {
 }
 
 body {
-  font-family:
-    "Fira Code",
-    "JetBrains Mono",
-    Monaco,
-    Consolas,
-     "Ubuntu Mono",
+  font-family: "Fira Code", "JetBrains Mono", Monaco, Consolas, "Ubuntu Mono",
     monospace;
   font-size: var(--font-size);
   font-weight: 400;
@@ -65,11 +60,20 @@ h6 {
   letter-spacing: 0;
 }
 
-h1, h2, h3, h4, h5, h6,
-p, ul, ol,
-img, figure, video,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+img,
+figure,
+video,
 table {
-  margin: 25px 0;
+  margin: 10px 0;
 }
 
 a {
@@ -172,9 +176,7 @@ select {
     ),
     linear-gradient(135deg, var(--foreground) 50%, transparent 50%);
   background-position: calc(100% - 20px), calc(100% - 15px);
-  background-size:
-    5px 5px,
-    5px 5px;
+  background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
   padding-right: 40px;
 }
@@ -250,12 +252,7 @@ ol li {
 
 code,
 kbd {
-  font-family:
-    "Fira Code",
-    "JetBrains Mono",
-    Monaco,
-    Consolas,
-    Ubuntu Mono,
+  font-family: "Fira Code", "JetBrains Mono", Monaco, Consolas, Ubuntu Mono,
     monospace !important;
   font-feature-settings: normal;
   background: color-mix(in srgb, var(--foreground) 5%, transparent);
@@ -379,8 +376,14 @@ hr {
 
 /* Bold elements */
 
-h1, h2, h3, h4, h5, h6,
-b, strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
 th,
 button {
   font-weight: 600;
