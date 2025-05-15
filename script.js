@@ -161,7 +161,7 @@ window.addEventListener("click", function (event) {
 // Initialize content sections as hidden
 document.addEventListener("DOMContentLoaded", function () {
   const contentSections = document.querySelectorAll(
-    ".about-content, .professional-content, .projects-content, .contact-content"
+    ".about-content, .skills-content, .projects-content, .contact-content"
   );
   contentSections.forEach((section) => {
     section.style.display = "none";

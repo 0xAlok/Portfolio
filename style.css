@@ -129,12 +129,39 @@
 
 /* Content styling */
 .about-content,
-.professional-content,
+.skills-content,
 .projects-content,
 .contact-content {
   padding-left: 25px;
   border-left: 2px solid rgba(238, 195, 94, 0.3);
   margin-top: 1rem;
+}
+
+.skills-content {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1rem; /* Specific vertical gap between rows of tags */
+  column-gap: 0.75rem; /* Horizontal gap between tags */
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem; /* Increased internal padding for tags */
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--foreground);
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 0.5rem;
+}
+
+.skill-tag:hover {
+  background-color: var(--accent);
+  color: var(--background);
+  transform: translateY(-1px);
 }
 
 .project-list {
