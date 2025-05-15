@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Delay each command typing to create a sequence
     setTimeout(() => {
       typeText(element, originalText);
-    }, index * 2000); // 2 seconds delay between commands
+    }, index * 1500); // 2 seconds delay between commands
   });
 });
 
@@ -45,10 +45,7 @@ function typeText(element, text) {
       const commandPrompt = element.closest(".command-prompt");
       if (commandPrompt && commandPrompt.nextElementSibling) {
         const sectionToDisplay = commandPrompt.nextElementSibling;
-        console.log(
-          "Attempting to display section:",
-          sectionToDisplay.classList.toString()
-        ); // Log the class list
+        // console.log removed
         setTimeout(() => {
           sectionToDisplay.style.opacity = "0";
           // Ensure the section is set to display: flex for skills-content, or block for others

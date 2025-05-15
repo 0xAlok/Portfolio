@@ -1,15 +1,9 @@
-/* Custom styles to enhance the terminal theme */
-
-/* WebNeko image style overrides */
-/* The Neko script creates an img tag like <img name="imageNeko0" ...> */
-/* These rules override global img styles from terminal.css for the Neko image */
 img[name^="imageNeko"] {
   border: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
   border-radius: 0 !important;
-  max-width: none !important; /* Allow Neko script to set its own size */
-  /* display: inline !important; /* Let Neko script handle display type or default */
+  max-width: none !important;
 }
 
 /* New Intro Header Styles */
@@ -26,7 +20,6 @@ img[name^="imageNeko"] {
   width: 160px; /* Default size, adjust as needed */
   height: 170px; /* Making it square */
   object-fit: cover; /* Covers the square area, might crop if original is not square */
-  /* border-radius: 8px; /* Optional: if you want slightly rounded corners for the photo frame */
   /* No CSS border, assuming border is part of the image file */
 }
 
@@ -250,7 +243,6 @@ img[name^="imageNeko"] {
   color: var(--foreground);
   background-color: transparent;
   transition: all 0.2s ease-in-out;
-  /* margin-bottom: 0.5rem; */
 }
 
 .skill-tag:hover {
@@ -296,7 +288,6 @@ img[name^="imageNeko"] {
   display: block;
   aspect-ratio: 5 / 3;
   overflow: hidden; /* Important for pseudo-element clipping if needed */
-  /* border-radius: 8px 8px 0 0; /* If card has 8px radius, match top corners */
 }
 
 .project-image-wrapper::after {
@@ -411,74 +402,9 @@ img[name^="imageNeko"] {
   color: var(--background);
 }
 
-/* Modal styling for project details */
-.modal {
-  display: none; /* Modal is no longer used */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
-}
+/* Modal styling for project details - REMOVED as modal is no longer used */
 
-.contact-list {
-  list-style-type: none;
-  margin: 1rem 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.contact-list li a {
-  display: inline-block;
-  padding: 5px 15px;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.contact-list li a:hover {
-  background-color: var(--accent);
-  color: var(--background);
-}
-
-/* Modal styling for project details */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-content {
-  background-color: var(--background);
-  margin: 10% auto;
-  padding: 25px;
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  width: 80%;
-  max-width: 800px;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
-.close-modal {
-  color: var(--accent);
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close-modal:hover {
-  color: var(--foreground);
-}
+/* Modal styling for project details - All modal styles removed as they are no longer used. */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
