@@ -1,6 +1,72 @@
 /* Custom styles to enhance the terminal theme */
 
+/* New Intro Header Styles */
+.new-intro-header {
+  display: flex;
+  align-items: center;
+  max-width: 900px; /* Same as terminal container */
+  margin: 2rem auto 2rem auto; /* Spacing around it */
+  padding: 0 1rem;
+  gap: 2rem; /* Space between photo and text column */
+}
+
+.intro-photo-column .profile-photo {
+  width: 180px; /* Adjust as needed */
+  height: 180px; /* Adjust as needed */
+  object-fit: cover;
+  /* border-radius: 8px; Keeping it as is, as per user instruction */
+}
+
+.intro-text-column .intro {
+  /* Styles for the moved intro text */
+  margin-bottom: 1.5rem; /* Space before social icons */
+}
+
+.intro-text-column .intro h1 {
+  color: var(
+    --foreground
+  ); /* Override terminal accent color if desired, or keep var(--accent) */
+  /* Any other specific styling for h1 outside terminal */
+}
+.intro-text-column .intro p {
+  color: var(--foreground);
+  opacity: 0.9;
+  font-size: 1rem; /* Match base font size or adjust */
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.social-icons-circular {
+  display: flex;
+  gap: 1rem; /* Space between icons */
+}
+
+.social-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px; /* Size of the circle */
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid var(--accent); /* Or var(--foreground) */
+  color: var(--accent); /* Icon color */
+  transition: all 0.3s ease;
+}
+
+.social-icon-circle:hover {
+  background-color: var(--accent);
+  color: var(--background); /* Icon color on hover */
+  border-color: var(--accent);
+}
+
+.social-icon-circle svg {
+  width: 20px; /* Size of SVG icon inside circle */
+  height: 20px;
+  stroke: currentColor; /* Inherits color from parent <a> */
+}
+
 .container {
+  /* This is the terminal container */
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
@@ -130,17 +196,24 @@
 /* Content styling */
 .about-content,
 .skills-content,
-.projects-content,
+/* .projects-content is now styled separately */
 .contact-content {
-  padding-left: 25px;
+  padding-left: 25px; /* This is the indent for sections */
   border-left: 2px solid rgba(238, 195, 94, 0.3);
   margin-top: 1rem;
+}
+
+.projects-content {
+  /* For the "ls projects/" section */
+  /* padding-left: 25px; REMOVED to align cards with command prompt edge */
+  /* border-left: 2px solid rgba(238, 195, 94, 0.3); REMOVED */
+  margin-top: 0.25rem; /* Significantly reduced space above cards */
 }
 
 .skills-content {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 1rem; /* Specific vertical gap between rows of tags */
+  row-gap: 0.5rem; /* Specific vertical gap between rows of tags */
   column-gap: 0.75rem; /* Horizontal gap between tags */
   padding-top: 0.5rem;
   padding-bottom: 1rem;
@@ -148,14 +221,14 @@
 
 .skill-tag {
   display: inline-block;
-  padding: 0.5rem 1rem; /* Increased internal padding for tags */
+  padding: 0.2rem 0.8rem; /* Increased internal padding for tags */
   border: 1px solid var(--accent);
   border-radius: 4px;
   font-size: 0.9rem;
   color: var(--foreground);
   background-color: transparent;
   transition: all 0.2s ease-in-out;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 
 .skill-tag:hover {
@@ -164,29 +237,140 @@
   transform: translateY(-1px);
 }
 
-.project-list {
+/* New Project Card Styles */
+.project-card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-  margin: 1rem 0;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Responsive grid */
+  gap: 1.5rem; /* Gap between cards */
+  margin: 0.25rem 0 1rem 0; /* Reduced top margin */
 }
 
-.project-item {
-  cursor: pointer;
-  padding: 1rem;
+.project-card {
+  background-color: color-mix(
+    in srgb,
+    var(--background) 90%,
+    #fff 3%
+  ); /* Slightly lighter than terminal body */
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 8px;
+  /* padding: 1.5rem; REMOVED - padding will be on content wrapper */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Ensures image corners conform to card radius */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-image {
+  width: 100%;
+  margin: 0px;
+  max-height: 200px; /* Adjusted max-height slightly */
+  object-fit: cover;
+  /* border-radius: 4px; REMOVED - will use card's top radius */
+  /* margin-bottom: 1rem; REMOVED - no margin below image */
+  /* border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent); REMOVED */
+  display: block; /* Prevents extra space below image */
+}
+
+.project-card-content {
+  padding: 0.75rem 1rem 0.2rem 1rem; /* Reduced top padding, kept side/bottom */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensure content area takes remaining space */
+}
+
+.project-title {
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-bottom: 0.25rem; /* Reduced margin */
+  margin: 5px;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem; /* Reduced margin */
+  flex-grow: 1; /* Allows description to take up available space */
+  margin: 5px;
+}
+
+.project-tech-stack {
+  margin-bottom: 0.5rem; /* Reduced margin */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tech-stack .tech-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  background-color: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  border-radius: 4px;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto; /* Pushes links to the bottom */
+}
+
+.project-link-icon svg {
+  width: 20px; /* Smaller icons */
+  height: 20px;
+  stroke: var(--accent);
+  transition: stroke 0.2s ease;
+}
+
+.project-link-icon:hover svg {
+  stroke: color-mix(in srgb, var(--accent) 70%, #fff);
+}
+
+/* Remove old project list styles if any are conflicting */
+.project-list,
+.project-item,
+.note {
+  display: none; /* Hide old project structure elements */
+}
+
+.contact-list {
+  list-style-type: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.contact-list li a {
+  display: inline-block;
+  padding: 5px 15px;
   border: 1px solid var(--accent);
   border-radius: 4px;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.project-item:hover {
-  background-color: rgba(238, 195, 94, 0.1);
-  transform: translateY(-2px);
+.contact-list li a:hover {
+  background-color: var(--accent);
+  color: var(--background);
 }
 
-.note {
-  color: var(--foreground);
-  opacity: 0.7;
+/* Modal styling for project details */
+.modal {
+  display: none; /* Modal is no longer used */
+  position: fixed;
+  z-index: 1;
+  left: 0;
   font-size: 0.85rem;
   margin-top: 0.5rem;
 }
