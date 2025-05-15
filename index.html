@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alok | Developer Portfolio</title>
+    <meta
+      name="description"
+      content="A geeky student — interested in computers, minimalism, space-tech & the web."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Alok | Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="A geeky student — interested in computers, minimalism, space-tech & the web."
+    />
+    <meta property="og:image" content="og-image.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="terminal.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="terminal-header">
+          <div class="controls">
+            <span class="control close"></span>
+            <span class="control minimize"></span>
+            <span class="control maximize"></span>
+          </div>
+          <div class="title">alok@portfolio:~$</div>
+        </div>
+      </header>
+
+      <main class="terminal-body">
+        <div class="welcome">
+          <div class="intro">
+            <h1>> Hi. I'm Alok<span class="wave">👋</span></h1>
+            <p>
+              A geeky student — interested in computers, minimalism, space-tech
+              & the web.
+            </p>
+            <p>This is my ~/home on the internet, thanks to IIT Madras.</p>
+          </div>
+
+          <div class="command-prompt">
+            <span class="prompt">alok@portfolio:~$</span>
+            <span class="command">cat about.txt</span>
+          </div>
+
+          <div class="about-content">
+            <p>
+              I enjoy talking about <mark>*almost anything*</mark> tech. Solving
+              silly problems and some not-so-silly problems.
+            </p>
+            <p>
+              When I'm not nerding out on tech, you'll find me pumping some
+              iron, blogging my thoughts, reading philosophy, playing the
+              guitar, or catching up on movies, sports, and anime.
+            </p>
+          </div>
+
+          <div class="command-prompt">
+            <span class="prompt">alok@portfolio:~$</span>
+            <span class="command">cat professional.txt</span>
+          </div>
+
+          <div class="professional-content">
+            <p>
+              I am a data science major at Indian Institute of Technology
+              Madras, passionate about both the power of data to drive insights
+              and the automation magic of DevOps.
+            </p>
+            <p>My skillset includes:</p>
+            <ul>
+              <li>Advanced Coding</li>
+              <li>Statistical Analysis</li>
+              <li>Machine Learning</li>
+              <li>Web Development</li>
+              <li>DevOps (Python, Linux, Ansible, Docker)</li>
+            </ul>
+            <p>
+              I have always been fascinated by the power of data to drive
+              business decisions and impact the world, which is what drew me to
+              this field.
+            </p>
+          </div>
+
+          <div class="command-prompt">
+            <span class="prompt">alok@portfolio:~$</span>
+            <span class="command">ls projects/</span>
+          </div>
+
+          <div class="projects-content">
+            <div class="project-list">
+              <div class="project-item">project-1.md</div>
+              <div class="project-item">project-2.md</div>
+              <div class="project-item">project-3.md</div>
+            </div>
+            <p class="note">(Click on a project to learn more)</p>
+          </div>
+
+          <div class="command-prompt">
+            <span class="prompt">alok@portfolio:~$</span>
+            <span class="command">ls contact/</span>
+          </div>
+
+          <div class="contact-content">
+            <ul class="contact-list">
+              <li><a href="#" target="_blank">LinkedIn</a></li>
+              <li><a href="#" target="_blank">GitHub</a></li>
+              <li><a href="#" target="_blank">Email</a></li>
+              <li><a href="#" target="_blank">Resume</a></li>
+            </ul>
+          </div>
+
+          <div class="command-prompt">
+            <span class="prompt">alok@portfolio:~$</span>
+            <span class="command blink">_</span>
+          </div>
+        </div>
+      </main>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div id="modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Markdown to HTML conversion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
