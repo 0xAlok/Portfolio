@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (allCommandPromptDivs.length > 0) {
     allCommandPromptDivs[0].style.display = "flex";
   }
-  // All other prompts, including the final blinking one, remain hidden by CSS.
 
   // Typing effect for commands
   const commandElements = document.querySelectorAll(".command:not(.blink)");
@@ -48,7 +47,6 @@ function typeText(element, text) {
         // console.log removed
         setTimeout(() => {
           sectionToDisplay.style.opacity = "0";
-          // Ensure the section is set to display: flex for skills-content, or block for others
           if (
             sectionToDisplay.classList.contains(
               "skills-content"
@@ -91,5 +89,5 @@ function typeText(element, text) {
         }, 500); // End of section display timeout
       }
     }
-  }, 40); // 40ms between characters
+  }, 30); // 40ms between characters
 }

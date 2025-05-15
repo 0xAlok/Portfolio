@@ -10,15 +10,6 @@ A minimalist, terminal-styled portfolio website for showcasing developer skills 
 - Sleek, modern terminal aesthetics
 - Easy to customize and extend
 
-## File Structure
-
-- `index.html` - The main HTML file for the portfolio
-- `terminal.css` - Base terminal styling
-- `style.css` - Custom styling for the portfolio
-- `script.js` - JavaScript for animations and interactivity
-- `favicon.png` - Site favicon
-- `og-image.png` - Image for social media sharing
-
 ## Customization
 
 To customize this portfolio:
