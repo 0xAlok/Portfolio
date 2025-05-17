@@ -1,6 +1,5 @@
 // Command line effect
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize content sections as hidden
   const contentSections = document.querySelectorAll(
     ".about-content, .skills-content, .projects-content, .contact-content"
   );
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     section.style.opacity = "0";
   });
 
-  // Make only the first command prompt visible initially
+  // Make only the first command prompt visible
   const allCommandPromptDivs = document.querySelectorAll(
     ".welcome > .command-prompt"
   );
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Delay each command typing to create a sequence
     setTimeout(() => {
       typeText(element, originalText);
-    }, index * 1500); // 2 seconds delay between commands
+    }, index * 1500);
   });
 });
 
@@ -40,30 +39,22 @@ function typeText(element, text) {
       i++;
     } else {
       clearInterval(interval);
-      // Show the corresponding content section after typing is complete
       const commandPrompt = element.closest(".command-prompt");
       if (commandPrompt && commandPrompt.nextElementSibling) {
         const sectionToDisplay = commandPrompt.nextElementSibling;
-        // console.log removed
         setTimeout(() => {
           sectionToDisplay.style.opacity = "0";
-          if (
-            sectionToDisplay.classList.contains(
-              "skills-content"
-            ) /* Removed || sectionToDisplay.classList.contains("project-card-container") as project-card-container is a child */
-          ) {
+          if (sectionToDisplay.classList.contains("skills-content")) {
             sectionToDisplay.style.display = "flex";
           } else if (sectionToDisplay.classList.contains("projects-content")) {
-            // projects-content is the wrapper for project-card-container
             sectionToDisplay.style.display = "block";
-            // And then ensure its child project-card-container is grid
             const projectCardContainer = sectionToDisplay.querySelector(
               ".project-card-container"
             );
             if (projectCardContainer)
               projectCardContainer.style.display = "grid";
           } else {
-            sectionToDisplay.style.display = "block"; // Default for .about-content, .contact-content
+            sectionToDisplay.style.display = "block";
           }
 
           // Fade in effect
@@ -71,8 +62,7 @@ function typeText(element, text) {
             sectionToDisplay.style.opacity = "1";
             sectionToDisplay.style.transition = "opacity 0.5s";
 
-            // After this section is revealed, show the next command prompt
-            const currentCommandPromptDiv = commandPrompt; // commandPrompt is element.closest(".command-prompt")
+            const currentCommandPromptDiv = commandPrompt;
             const allPrompts = Array.from(
               document.querySelectorAll(".welcome > .command-prompt")
             );
@@ -81,13 +71,12 @@ function typeText(element, text) {
             if (currentIndex !== -1 && currentIndex < allPrompts.length - 1) {
               const nextCommandPromptDiv = allPrompts[currentIndex + 1];
               if (nextCommandPromptDiv) {
-                // This will now also show the blinking prompt when it's next
                 nextCommandPromptDiv.style.display = "flex";
               }
             }
-          }, 100); // End of fade-in timeout
-        }, 500); // End of section display timeout
+          }, 100);
+        }, 500);
       }
     }
-  }, 30); // 40ms between characters
+  }, 30);
 }
