@@ -195,6 +195,14 @@ img[name^="imageNeko"] {
 
 .about-content,
 .skills-content,
+.projects-content,
+.contact-content {
+  display: none; /* Start hidden */
+  opacity: 0;    /* Start transparent for fade-in */
+}
+
+.about-content,
+.skills-content,
 .contact-content {
   padding-left: 25px;
   border-left: 2px solid rgba(238, 195, 94, 0.3);

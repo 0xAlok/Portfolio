@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ".about-content, .skills-content, .projects-content, .contact-content"
   );
   contentSections.forEach((section) => {
-    section.style.display = "none";
-    section.style.opacity = "0";
+    // section.style.display = "none";
+    // section.style.opacity = "0";
   });
 
   // Make only the first command prompt visible
